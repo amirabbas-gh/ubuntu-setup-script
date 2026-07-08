@@ -8,6 +8,7 @@ This repository contains a single script, `provision.sh`, that fully prepares a 
 - Installs `Docker Engine` + `Docker CLI` + `Buildx` + `Compose Plugin` (official Docker repository)
 - Installs `PHP 8.x` (latest stable available) with common WordPress extensions
 - Installs `Node.js LTS` + `npm` (NodeSource) and `PM2`
+- Installs C/C++ build tools (`gcc`, `g++`, `make`, `cmake`, `pkg-config`)
 - Configures `Git credential.helper store`
 - Configures `UFW` to allow only `SSH` and `Nginx`
 - Runs final version and service checks

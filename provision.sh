@@ -5,7 +5,7 @@
 # Fully provisions a brand-new Ubuntu 24.04 LTS server with:
 #   Nginx, Docker (Engine + Compose plugin), PHP 8.x (WordPress-ready extensions),
 #   Node.js LTS + npm, PM2 (with boot persistence), Git credential storage,
-#   and a locked-down UFW firewall.
+#   C/C++ build tooling (gcc/g++/make), and a locked-down UFW firewall.
 #
 # Design goals: idempotent, non-interactive, fail-fast, verbose progress output,
 # latest stable software from official upstream repositories.
@@ -129,6 +129,11 @@ apt_install \
     git \
     ufw \
     build-essential \
+    gcc \
+    g++ \
+    make \
+    cmake \
+    pkg-config \
     jq \
     cron
 
