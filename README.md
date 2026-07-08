@@ -1,6 +1,6 @@
-# Ubuntu 24.04 Provision Script
+# Ubuntu 24.04 Server Provisioning
 
-This repository contains a single script, `provision.sh`, that fully prepares a fresh **Ubuntu 24.04 LTS** server for **production** use.
+This repository provisions a fresh **Ubuntu 24.04 LTS** server for **production** use with Ansible.
 
 ## What It Does
 - Fully updates the system and installs required dependencies
@@ -10,18 +10,20 @@ This repository contains a single script, `provision.sh`, that fully prepares a 
 - Installs `Node.js LTS` + `npm` (NodeSource) and `PM2`
 - Installs C/C++ build tools (`gcc`, `g++`, `make`, `cmake`, `pkg-config`)
 - Configures `Git credential.helper store`
-- Configures `UFW` to allow only `SSH` and `Nginx`
+- Configures `UFW` to allow only `SSH`, `Nginx`
 - Runs final version and service checks
 
-## Script Guarantees
+## Playbook Guarantees
 - Non-interactive
 - Idempotent as much as reasonably possible (safe to re-run)
-- Fail-fast with `set -Eeuo pipefail`
+- Fail-fast behavior (play stops immediately on task errors)
 - Clear step-by-step logs and meaningful errors
 
-## Usage
+## Ansible Usage
 ```bash
-sudo bash provision.sh
+cp inventory.ini.example inventory.ini
+# edit inventory.ini with your server IP and SSH user
+ansible-playbook -i inventory.ini provision.yml
 ```
 
 > Recommended: run this on a fresh server.
